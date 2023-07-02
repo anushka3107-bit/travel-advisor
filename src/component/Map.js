@@ -33,22 +33,19 @@ const markers = [
   },
 ];
 
-const Map = () => {
+const Map = ({ setBounds }) => {
   return (
     <div
       style={{
-        position: "fixed",
-        right: 0,
-        top: 0,
-        bottom: 0,
-        width: "50%",
-        margin: "80px 0 0 0",
+        display: "flex",
+        alignItems: "stretch",
+        height: "calc(100vh - 80px)",
       }}
     >
       <MapContainer
         center={[48.8566, 2.3522]}
         zoom={13}
-        style={{ height: "100%" }}
+        style={{ flex: "1 1 50%", overflowY: "auto" }}
       >
         {/* OPEN STREEN MAPS TILES */}
         <TileLayer
