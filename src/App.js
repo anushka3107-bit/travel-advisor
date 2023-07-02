@@ -1,11 +1,12 @@
-
-import './App.css';
-import Header from './component/Header';
+import SliderRange from "./component/SliderRange";
+import "./App.css";
+// import Header from "./component/Header";
 
 function App() {
   return (
     <div className="App">
-     <Header />
+      {/* <Header /> */}
+      <SliderRange />
     </div>
   );
 }
