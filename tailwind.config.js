@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customSliderColor: "#D3F6F3",
+        customSliderColor: "#E3F4F4",
       },
     },
   },
