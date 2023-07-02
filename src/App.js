@@ -6,18 +6,8 @@ import { useEffect, useState } from "react";
 import List from "./component/List";
 import { getPlacesData } from "./api";
 
-const places = [
-  { name: "dummy" },
-  { name: "dummy" },
-  { name: "dummy" },
-  { name: "dummy" },
-  { name: "dummy" },
-  { name: "dummy" },
-];
-
 function App() {
   const [places, setPlaces] = useState([]);
-
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
   const [isLoading, setIsLoading] = useState(false);
   const [bounds, setBounds] = useState(null);

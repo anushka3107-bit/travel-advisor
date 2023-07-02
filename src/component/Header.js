@@ -36,9 +36,13 @@ const SearchBar = () => {
         </div>
 
         <div className="flex text-md cursor-pointer items-center justify-end mr-5 ml-0 ">
+          {/* filter div */}
+
           <div className="text-gray-600 py-2 px-4 border border-gray-200 rounded-full">
             <span>Filters</span>
           </div>
+
+          {/* attractions div */}
           <div
             className="text-gray-600 py-2 px-4 ml-3 border-2 border-black rounded-full flex items-center"
             onClick={handleAttractionsClick}
@@ -47,6 +51,7 @@ const SearchBar = () => {
             <FiChevronDown className="ml-1" />{" "}
             {/* Add the FiChevronDown icon */}
           </div>
+          {/* Attraction Dropdown Menu */}
           <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
