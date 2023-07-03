@@ -1,17 +1,20 @@
 import SliderRange from "./component/SliderRange";
 import "./App.css";
-
 import Header from "./component/Header";
-import Map from "./component/Map";
 import { useEffect, useState } from "react";
 import List from "./component/List";
 import { getPlacesData } from "./api";
+import Map from "./component/Map/Map";
 
 function App() {
   const [places, setPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [bounds, setBounds] = useState(null);
+
+  const [type, setType] = useState("resturants");
+
+  const [ratings, setRatings] = useState(" ");
 
   useEffect(() => {
     setIsLoading(true);
@@ -48,7 +51,11 @@ function App() {
   return (
     <div className="App">
       <div style={{ height: "80px" }}>
-        <Header />
+        <Header
+          setType={setType}
+          setRatings={setRatings}
+          setCoordinates={setCoordinates}
+        />
       </div>
       <div style={{ width: "50%", float: "left" }}>
         <SliderRange />

@@ -5,7 +5,7 @@ import { FiChevronDown } from "react-icons/fi";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-const SearchBar = () => {
+const Header = ({ setType, setCoordinates }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleAttractionsClick = (event) => {
@@ -13,6 +13,14 @@ const SearchBar = () => {
   };
 
   const handleAttractionsClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleFilterClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleFilterClose = () => {
     setAnchorEl(null);
   };
 
@@ -38,9 +46,30 @@ const SearchBar = () => {
         <div className="flex text-md cursor-pointer items-center justify-end mr-5 ml-0 ">
           {/* filter div */}
 
-          <div className="text-gray-600 py-2 px-4 border border-gray-200 rounded-full">
+          <div
+            className="text-gray-600 py-2 px-4 ml-3 border-2 border-black rounded-full flex items-center"
+            onClick={()=> setType('resturants')}
+          >
             <span>Filters</span>
           </div>
+          {/* Attraction Filter Menu */}
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleFilterClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+          >
+            <MenuItem onClick={handleFilterClose}>resturants</MenuItem>
+            <MenuItem onClick={handleFilterClose}>hotels</MenuItem>
+            <MenuItem onClick={handleFilterClose}>ratings</MenuItem>
+          </Menu>
 
           {/* attractions div */}
           <div
@@ -75,4 +104,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Header;
