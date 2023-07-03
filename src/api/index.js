@@ -21,9 +21,8 @@ export const getPlacesData = async () => {
     const {
       data: { data },
     } = await axios.get(URL, options);
-
     return data;
   } catch (error) {
-    console.log("Fetch data error : ${error}");
+    console.log(error);
   }
 };

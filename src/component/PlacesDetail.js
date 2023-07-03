@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Rating from "@mui/material/Rating";
 import { AiOutlineHeart } from "react-icons/ai";
 
@@ -9,6 +9,9 @@ const PlacesDetail = ({ place }) => {
     }
     return "https://cdn.pixabay.com/photo/2017/07/28/14/29/macarons-2548827_640.jpg";
   };
+
+
+
   return (
     <div className="flex flex-col bg-slate-100 px-4 py-2 mb-2 shadow-lg">
       <div className="flex">

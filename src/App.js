@@ -9,7 +9,7 @@ import { getPlacesData } from "./api";
 
 function App() {
   const [places, setPlaces] = useState([]);
-  const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
+  const [coordinates, setCoordinates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [bounds, setBounds] = useState(null);
 
@@ -19,6 +19,29 @@ function App() {
       console.log(data);
       setPlaces(data);
       setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    // this is used to get the current location of the user
+
+    const locateUser = () => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCoordinates([position.coords.latitude, position.coords.longitude]);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    };
+
+    locateUser();
+  }, []);
+
+  useEffect(() => {
+    getPlacesData().then((data) => {
+      console.log(data);
     });
   }, []);
 
@@ -33,7 +56,11 @@ function App() {
         <List places={places} isLoading={isLoading} />
       </div>
 
-      <Map setBounds={setBounds} />
+      <Map
+        coordinates={coordinates}
+        setCoordinates={setCoordinates}
+        setBounds={setBounds}
+      />
     </div>
   );
 }
