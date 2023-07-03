@@ -45,7 +45,7 @@ const Map = ({ setBounds }) => {
       <MapContainer
         center={[48.8566, 2.3522]}
         zoom={13}
-        style={{ flex: "1 1 50%", overflowY: "auto" }}
+        className="flex-1 overflow-hidden"
       >
         {/* OPEN STREEN MAPS TILES */}
         <TileLayer

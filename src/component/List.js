@@ -18,7 +18,7 @@ const List = ({ places, isLoading }) => {
     );
 
   return (
-    <div className="flex flex-col w-4/5 h-100vh mt-3 top-0 overflow-hidden z-10 px-3 py-3 mx-2 shadow-xl border border-gray-300 rounded-md overflow-y-scroll">
+    <div className="flex flex-col w-4/5 h-100vh mt-3 top-0 overflow-hidden z-10 px-3 py-3 mx-2 shadow-xl border border-gray-300 rounded-md overflow-y-hidden">
       {places &&
         places.map((place, i) => <PlacesDetail place={place} key={i} />)}
     </div>

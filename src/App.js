@@ -1,5 +1,6 @@
 import SliderRange from "./component/SliderRange";
 import "./App.css";
+
 import Header from "./component/Header";
 import Map from "./component/Map";
 import { useEffect, useState } from "react";
